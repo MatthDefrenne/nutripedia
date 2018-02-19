@@ -3,6 +3,7 @@ var bodyParser = require('body-parser')
 const app = express();
 var mailjet = require('node-mailjet').connect('36a3d81be137f529167c7d0231fce037', '192a40d8e4f50aef301882e97a531413');
 const path = require('path');
+app.use(bodyParser());
 
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
