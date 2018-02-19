@@ -20,8 +20,8 @@ app.get('/articles', function(req, res) {
     connection.query('SELECT * FROM articles', function (error, results, fields) {
         if (error) throw error;
         console.log('The solution is: ', results);
-        res.json(JSON.parse(results));
-    });
+        res.json(results);
+      });
 })
 
 app.use(bodyParser.json())
