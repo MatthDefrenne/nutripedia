@@ -21,7 +21,7 @@ app.get('/articles', function(req, res) {
     connection.query('SELECT * FROM articles', function (error, results, fields) {
         if (error) throw error;
         console.log('The solution is: ', results);
-        res.json(results);
+        res.json(JSON.stringify(results));
       });
 })
 
