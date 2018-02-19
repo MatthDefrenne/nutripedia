@@ -14,12 +14,18 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-connection.query('SELECT * FROM articles', function (error, results, fields) {
-  if (error) throw error;
-  console.log('The solution is: ', results);
-});
 
-app.use(express.static(__dirname + '/dist'));
+
+app.get('/articles', function(req, res) {
+    connection.query('SELECT * FROM articles', function (error, results, fields) {
+        if (error) throw error;
+        console.log('The solution is: ', results);
+        res.json(results);
+      });
+})
+
 app.use(bodyParser.json())
 
-app.listen(process.env.PORT || 8080);
+app.listen(8080);
+console.log('Server running at http://localhost:8080/');
+
